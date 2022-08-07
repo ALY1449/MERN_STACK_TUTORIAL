@@ -1,0 +1,4 @@
+{
+    "mongoURI":
+   "mongodb+srv://mernstackDB:coolestapp123@cluster0.k6k0qjh.mongodb.net/?retryWrites=true&w=majority"
+}
