@@ -40,6 +40,9 @@ if (process.env.NODE_ENV === "production"|| process.env.NODE_ENV === "staging") 
     res.sendFile(path.join(__dirname + "/my-app/build/index.html"));
     });
 }
+else{
+  app.get('/', (req, res) => res.send('API running on port ${port}'));
+}
 
 
 //const port = process.env.PORT || 8082;
