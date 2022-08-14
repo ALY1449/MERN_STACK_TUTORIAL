@@ -1,7 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db');
 var cors = require('cors');
-
+require("dotenv").config();
 
 // routes
 const books = require('./routes/api/books');
@@ -37,8 +37,22 @@ if (process.env.NODE_ENV === "production"|| process.env.NODE_ENV === "staging") 
     app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname + "/client/build/index.html"));
     });
-   }
+}
+
 //const port = process.env.PORT || 8082;
+
+require("dotenv").config()
+
+    mongoose
+     .connect(
+         process.env.MONGODB_CONNECTION_STRING,
+             {
+               useNewUrlParser: true,
+               useUnifiedTopology: true,
+             }
+     )
+     .then(() => console.log("MongoDB has been connected"))
+     .catch((err) => console.log(err));
 
 const PORT = process.env.PORT || 5000
 
